@@ -1,0 +1,8 @@
+grep -v "#" 2021-11-29-Article_list_dirty.tsv \
+	| grep -v -e "^IMPORTANT" -e "^CREATOR" -e "^MAYBE" \
+	| cut -f 5,12 \
+	| sed -e "s/ISSN://gi" -e "s/ //g" \
+	| sort \
+	| uniq \
+		> 2021-11-29-Dates_and_ISSNs_v1.tsv
+
